@@ -36,6 +36,13 @@ public struct GroundState3D : ICharacterState3D
 
     public void Update(Vector3 movementInput, float deltaTime)
     {
+
+        if(Input.GetKeyDown(controller.dodgeKey) && velocity.Current.magnitude > MathHelper.FloatEpsilon && Time.time > (controller.TimeOfLastDodge + controller.DodgeCooldown))
+        {
+            var stateSwitch = new CharacterStateSwitch3D(new DodgeState3D(controller, velocity), movementInput, deltaTime, true);
+            controller.ChangeCharacterState(stateSwitch);
+        }
+
         UpdateVelocity(movementInput, deltaTime);
     }
 

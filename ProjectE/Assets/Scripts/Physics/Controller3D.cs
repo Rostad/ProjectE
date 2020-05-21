@@ -5,11 +5,26 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Controller3D : MonoBehaviour
 {
+
+    #region constants
+
+    public KeyCode dodgeKey = KeyCode.JoystickButton1;
+
+    #endregion
     [Tooltip("Units per second")]
     public float MoveSpeed = 6.0f;
 
+    [Tooltip("Units per second")]
+    public float DodgeSpeed = 1.0f;
+
+    [Tooltip("Duration of dodge state")]
+    public float DodgeDuration = 0.8f;
+
     [Tooltip("Maximum downwards velocity (enter as positive value")]
     public float TerminalVelocity = 18.0f;
+
+    [Tooltip("Duration in seconds")]
+    public float DodgeCooldown = 1.2f;
 
     public float GroundAccelerationTime = 0.1f;
 
@@ -40,6 +55,8 @@ public class Controller3D : MonoBehaviour
 
     public float Gravity { get; private set; }
 
+    public float TimeOfLastDodge { get; set; }
+
     public float ColliderHeight
     {
         get { return characterController.height; }
@@ -65,6 +82,9 @@ public class Controller3D : MonoBehaviour
         CalculateGravity();
         CalculateJumpVelocities();
         SetInitialCharacterState();
+
+
+        TimeOfLastDodge = -DodgeCooldown;
     }
 
     private void Update()

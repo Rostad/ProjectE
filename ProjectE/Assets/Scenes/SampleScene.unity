@@ -167,12 +167,12 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0.2
+  m_YDamping: 0.2
+  m_ZDamping: 0.2
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_CameraDistance: 12
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -264,8 +264,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614822151}
-  m_LocalRotation: {x: 0.38268337, y: 0.00000002753376, z: -0.000000011404855, w: 0.92387956}
-  m_LocalPosition: {x: -0.00000042146857, y: 10.791067, z: -7.071069}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 12.205281, z: -8.485281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 352768751}
@@ -440,13 +440,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.38268337, y: 0.00000002753376, z: -0.000000011404855, w: 0.92387956}
-  m_LocalPosition: {x: -0.00000042146857, y: 10.791067, z: -7.071069}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 12.205281, z: -8.485281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,11 +711,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301dc916464f1144693640c83e72340a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeKey: 331
   MoveSpeed: 6
+  DodgeSpeed: 20
+  DodgeDuration: 0.5
   TerminalVelocity: 18
+  DodgeCooldown: 1
   GroundAccelerationTime: 0.1
   AirAccelerationTime: 0.2
-  GroundDeaccelerationScale: 0.8
+  GroundDeaccelerationScale: 0.4
   AirDeaccelerationScale: 3.5
   MaxJumpHeight: 4
   MinJumpHeight: 1
