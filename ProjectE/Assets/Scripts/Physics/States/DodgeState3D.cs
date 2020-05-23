@@ -29,7 +29,7 @@ public struct DodgeState3D : ICharacterState3D
 
         this.controller = controller;
         this.velocity = velocity;
-        direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+        direction = new Vector3(PlayerInputs.instance.MovementInput.x, 0.0f, PlayerInputs.instance.MovementInput.y);
         direction.Normalize();
         timer = 0.0f;
         duration = controller.DodgeDuration;
@@ -41,7 +41,7 @@ public struct DodgeState3D : ICharacterState3D
 
     public void Exit()
     {
-        controller.TimeOfLastDodge = Time.time;
+        controller.TimeOfLastDodge = MyTime.instance.UnpausedTime;
     }
 
     public CharacterStateSwitch3D HandleCollisions(CollisionFlags collisionFlags)

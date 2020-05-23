@@ -89,9 +89,12 @@ public class Controller3D : MonoBehaviour
 
     private void Update()
     {
-        var deltaTime = Time.deltaTime;
-        characterState.Update(GetMovementInput(), deltaTime);
-        HandleCollisions(Move());
+        if (!GamePauser.IsPaused)
+        {
+            var deltaTime = Time.deltaTime;
+            characterState.Update(GetMovementInput(), deltaTime);
+            HandleCollisions(Move());
+        }
         DrawAxes();
     }
 
@@ -131,7 +134,14 @@ public class Controller3D : MonoBehaviour
 
     private Vector3 GetMovementInput()
     {
-        return new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+        //Vector3 v1 = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));       //TODO Make it so player can use both right stick and dpad on gamepad to move
+        //Vector3 v2 = new Vector3(Input.GetAxisRaw("6th Axis"), 0.0f, Input.GetAxisRaw("7th Axis"));
+
+        Vector3 v = new Vector3(PlayerInputs.instance.MovementInput.x, 0.0f, PlayerInputs.instance.MovementInput.y);
+
+        return v;
+
+        
     }
 
     private CollisionFlags Move()
