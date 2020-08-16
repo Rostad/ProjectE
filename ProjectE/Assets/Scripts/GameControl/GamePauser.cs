@@ -10,9 +10,15 @@ public static class GamePauser
 
     public static void ShouldPause(bool b)
     {
+        if(IsPaused == b)
+        {
+            throw new InvalidOperationException("Trying to pause the game while the game is already paused");
+        }
         IsPaused = b;
     }
 
+    
+    
 
 
 

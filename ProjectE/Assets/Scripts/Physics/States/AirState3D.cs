@@ -6,9 +6,17 @@ using UnityEngine;
 public struct AirState3D : ICharacterState3D
 {
 
+    private const int maxJumpCount = 2;
+
     private readonly Controller3D controller;
 
     private readonly Velocity3D velocity;
+
+    private int jumpCount;
+
+    private float jumpGracePeriod; //Amount of time player has to perform a jump after entering an airstate through falling off a platform
+
+    private float timeEntered;
 
     public AirState3D(Controller3D controller, Velocity3D velocity)
     {
@@ -23,6 +31,9 @@ public struct AirState3D : ICharacterState3D
 
         this.controller = controller;
         this.velocity = velocity;
+        jumpCount = 0;
+        jumpGracePeriod = 0.2f;
+        timeEntered = Time.time;
     }
 
     public void Enter()
@@ -34,7 +45,14 @@ public struct AirState3D : ICharacterState3D
 
     public void Update(Vector3 movementInput, float deltaTime)
     {
+        if (ShouldJump())
+            PerformJump();
+
         UpdateVelocity(movementInput, deltaTime);
+        if(Time.time > timeEntered + jumpGracePeriod && jumpCount == 0)
+        {
+            jumpCount++;
+        }
     }
 
     public CharacterStateSwitch3D HandleCollisions(CollisionFlags collisionFlags)
@@ -70,6 +88,19 @@ public struct AirState3D : ICharacterState3D
         }
 
         return new SmoothDampData(targetVelocity, smoothTime);
+    }
+
+    private void PerformJump()
+    {
+        
+        ++jumpCount;
+        velocity.SetY(controller.MaxJumpVelocity);
+           
+    }
+
+    private bool ShouldJump()
+    {
+        return PlayerInputs.instance.JumpButton && jumpCount < maxJumpCount;
     }
 
 }

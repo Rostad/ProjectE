@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DamageType
+public enum AttributeTypes
 {
-    Crushing,
-    Slashing,
-    Piercing,
-    None
+    Thunder, 
+    Fire
 }

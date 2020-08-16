@@ -30,6 +30,12 @@ public class Velocity3D
     {
         get { return velocity * deltaTime; }
     }
+
+    public Vector3 CurrentNormalized
+    {
+        get { return velocity.normalized; }
+    }
+
     public void SmoothDampUpdate(Vector3 movementInput, SmoothDampData smoothDampDataX,
    SmoothDampData smoothDampDataZ, float deltaTime)
     {

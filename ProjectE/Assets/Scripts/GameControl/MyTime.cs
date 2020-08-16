@@ -22,6 +22,12 @@ public class MyTime : MonoBehaviour
 
     public void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        } else
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

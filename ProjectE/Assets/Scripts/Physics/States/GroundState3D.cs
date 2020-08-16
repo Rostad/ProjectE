@@ -37,13 +37,22 @@ public struct GroundState3D : ICharacterState3D
     public void Update(Vector3 movementInput, float deltaTime)
     {
 
-        if(PlayerInputs.instance.DodgeButton && CanDodge())
+        if (PlayerInputs.instance.DodgeButton && CanDodge())
         {
             var stateSwitch = new CharacterStateSwitch3D(new DodgeState3D(controller, velocity), movementInput, deltaTime, true);
             controller.ChangeCharacterState(stateSwitch);
         }
 
-        UpdateVelocity(movementInput, deltaTime);
+        else if (PlayerInputs.instance.JumpButton)
+        {
+
+            var stateSwitch = new CharacterStateSwitch3D(new AirState3D(controller, velocity), movementInput, deltaTime, true);
+            controller.ChangeCharacterState(stateSwitch);
+        }
+        else
+        {
+            UpdateVelocity(movementInput, deltaTime);
+        }
     }
 
     private bool CanDodge()
