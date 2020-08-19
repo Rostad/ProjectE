@@ -12,6 +12,7 @@ public class PlayerInputs : MonoBehaviour
     public InputAction TargetAction;
     public InputAction DodgeAction;
     public InputAction JumpAction;
+    public InputAction ActionAction;
 
     public Vector2 MovementInput
     {
@@ -31,6 +32,11 @@ public class PlayerInputs : MonoBehaviour
     public bool JumpButton
     {
         get { return JumpAction.triggered; }
+    }
+
+    public bool ActionButton
+    {
+        get { return ActionAction.triggered; }
     }
 
     // Start is called before the first frame update
@@ -53,6 +59,7 @@ public class PlayerInputs : MonoBehaviour
         MoveAction.Enable();
         DodgeAction.Enable();
         JumpAction.Enable();
+        ActionAction.Enable();
     }
 
 }

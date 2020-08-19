@@ -11,10 +11,6 @@ public class Mana : MonoBehaviour
 
     public float manaRegen;
 
-    public float regenTick;
-
-    private float timeOfLastTick;
-
     private float currentMana;
 
     public float CurrentMana
@@ -52,11 +48,7 @@ public class Mana : MonoBehaviour
 
     public void Update()
     {
-        if (Time.time > timeOfLastTick + regenTick)
-        {
-            AddMana(manaRegen);
-            timeOfLastTick = Time.time;
-        }
+      AddMana(manaRegen * Time.deltaTime);      
     }
 
     public class OnManaChangedEventArgs : EventArgs
@@ -67,6 +59,7 @@ public class Mana : MonoBehaviour
 
     private void Start()
     {
+
         AddMana(MaxMana);
 
     }
