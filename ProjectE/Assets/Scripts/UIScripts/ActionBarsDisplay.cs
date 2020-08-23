@@ -44,6 +44,11 @@ public class ActionBarsDisplay : MonoBehaviour
             {
                 actionBarImages[i].fillAmount = 1;
             }
+            actionBarImages[2].fillAmount = 0; 
+            /*for(int i = e.newActionPoints; i < totalActionPoints; i++)
+            {
+                actionBarImages[i].fillAmount = 0;
+            }*/
             actionBarImages[e.newActionPoints].fillAmount = e.newActionEnergy / 100;
         }
     }

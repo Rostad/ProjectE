@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private Health health;
     private ActionPoints actionPoints;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerInputs.instance.ActionButton)
+        {
+            //GamePauser.ShouldPause(!GamePauser.IsPaused);
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0.05f;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
     }
 
     private void CacheComponents()
@@ -26,5 +39,15 @@ public class Player : MonoBehaviour
         mana = GetComponent<Mana>();
         health = GetComponent<Health>();
         actionPoints = GetComponent<ActionPoints>();
+    }
+
+    private void MouseTargeting()
+    {
+
+    }
+
+    private void ATBActivate()
+    {
+
     }
 }

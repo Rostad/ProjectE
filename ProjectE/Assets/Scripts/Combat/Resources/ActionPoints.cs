@@ -45,14 +45,6 @@ public class ActionPoints : MonoBehaviour
     private void Update()
     {
         AddActionEnergy(ActionEnergyRegen * Time.deltaTime);
-
-        if (PlayerInputs.instance.ActionButton)
-        {
-            if (CanSpend())
-            {
-                SpendActionEnergy();
-            }
-        }
     }
 
 

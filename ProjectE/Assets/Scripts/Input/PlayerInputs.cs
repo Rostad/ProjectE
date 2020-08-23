@@ -9,7 +9,6 @@ public class PlayerInputs : MonoBehaviour
     public static PlayerInputs instance;
 
     public InputAction MoveAction;
-    public InputAction TargetAction;
     public InputAction DodgeAction;
     public InputAction JumpAction;
     public InputAction ActionAction;
@@ -22,11 +21,6 @@ public class PlayerInputs : MonoBehaviour
     public bool DodgeButton
     {
         get { return DodgeAction.triggered; }
-    }
-
-    public bool TargetButton
-    {
-        get { return TargetAction.triggered; }
     }
 
     public bool JumpButton
