@@ -118,7 +118,6 @@ public class Controller3D : MonoBehaviour
     private void CreateVelocity()
     {
         velocity = new Velocity3D(-TerminalVelocity);
-        GetComponentInChildren<PlayerAnimationController>().ShareVelocity(velocity);
     }
 
     private void SetInitialCharacterState()

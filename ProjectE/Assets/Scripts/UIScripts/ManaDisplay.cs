@@ -25,6 +25,6 @@ public class ManaDisplay : MonoBehaviour
 
     private void OnManaChanged(object Sender, Mana.OnManaChangedEventArgs e)
     {
-        manaText.text = e.newCurrentManaAmount + " / " + e.maxManaAmount + " MP";
+        manaText.text = "MP " + e.newCurrentManaAmount;
     }
 }
