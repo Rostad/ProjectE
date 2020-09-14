@@ -34,4 +34,4 @@ Material:
     m_Colors:
     - Color_421B6992: {r: 5.992157, g: 5.992157, b: 5.992157, a: 1}
     - Vector2_7EDB0D4A: {r: 2, g: 0, b: 0, a: 0}
-    - Vector2_A8925C4E: {r: -0.5, g: 0, b: 0, a: 0}
+    - Vector2_A8925C4E: {r: 0.5, g: 0, b: 0, a: 0}
