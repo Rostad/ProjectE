@@ -40,4 +40,9 @@ public class Enemy : MonoBehaviour, ITargetable
     {
         return targetInformation;
     }
+
+    public Transform GetPositionInformation()
+    {
+        throw new System.NotImplementedException();
+    }
 }

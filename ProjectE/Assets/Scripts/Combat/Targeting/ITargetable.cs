@@ -7,5 +7,5 @@ public interface ITargetable
 
     TargetInformation GetTargetInformation();
 
-
+    Transform GetPositionInformation();
 }
