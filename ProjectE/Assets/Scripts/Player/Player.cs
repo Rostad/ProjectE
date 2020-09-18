@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : CombatEntity
 {
 
+    
+    
+
     private Mana mana;
-    private Health health;
+    private Health playerHealth;
     private ActionPoints actionPoints;
+
 
     
 
@@ -31,13 +35,15 @@ public class Player : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
+
+            
         }
     }
 
     private void CacheComponents()
     {
         mana = GetComponent<Mana>();
-        health = GetComponent<Health>();
+        playerHealth = GetComponent<Health>();
         actionPoints = GetComponent<ActionPoints>();
     }
 
@@ -49,5 +55,10 @@ public class Player : MonoBehaviour
     private void ATBActivate()
     {
 
+    }
+
+    protected override int GetHealth()
+    {
+        throw new System.NotImplementedException();
     }
 }

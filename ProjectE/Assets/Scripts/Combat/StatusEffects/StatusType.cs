@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AttributeTypes
+public enum StatusType
 {
-    Thunder, 
-    Fire,
-    Poison
+    beneficial,
+    detrimental
 }

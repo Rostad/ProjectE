@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, ITargetable
+public class Enemy : CombatEntity
 {
+    public int maxHealth;
 
-    public Sprite uiSprite;
-
-    private TargetInformation targetInformation;
-
+    private int health;
     // Start is called before the first frame update
     void Start()
     {
-        targetInformation = new TargetInformation(this.name, 100, uiSprite, TargetType.Enemy);
+        health = maxHealth;
+        entityTargetType = TargetType.Enemy;
     }
 
     // Update is called once per frame
@@ -36,12 +35,7 @@ public class Enemy : MonoBehaviour, ITargetable
         
     }
 
-    public TargetInformation GetTargetInformation()
-    {
-        return targetInformation;
-    }
-
-    public Transform GetPositionInformation()
+    protected override int GetHealth()
     {
         throw new System.NotImplementedException();
     }

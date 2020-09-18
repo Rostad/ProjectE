@@ -9,29 +9,29 @@ public class TargetHandler : MonoBehaviour
 
     public event EventHandler<EventArgs> OnTargetsChanged;
 
-    private List<ITargetable> targets;
+    private List<CombatEntity> targets;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        targets = new List<ITargetable>();
+        targets = new List<CombatEntity>();
         instance = this;
     }
 
    
-    public List<ITargetable> GetTargets()
+    public List<CombatEntity> GetTargets()
     {
         return targets;
     }
 
-    public void AddTarget(ITargetable target)
+    public void AddTarget(CombatEntity target)
     {
         targets.Add(target);
         OnTargetsChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    public void RemoveTarget(ITargetable target)
+    public void RemoveTarget(CombatEntity target)
     {
         targets.Remove(target);
         OnTargetsChanged?.Invoke(this, EventArgs.Empty);
