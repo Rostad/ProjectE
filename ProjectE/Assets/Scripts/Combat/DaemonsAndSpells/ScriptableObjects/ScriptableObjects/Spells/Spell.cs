@@ -9,6 +9,7 @@ public abstract class Spell : ScriptableObject
     public float manaCost;
     public AttributeTypes spellAttribute;
     public GameObject spellVFX;
+    public SpellBehaviour[] spellBehaviours;
 
     protected CombatEntity target;
     protected CombatEntity caster;
@@ -17,4 +18,5 @@ public abstract class Spell : ScriptableObject
         this.caster = caster;
         this.target = target;
     }
+
 }

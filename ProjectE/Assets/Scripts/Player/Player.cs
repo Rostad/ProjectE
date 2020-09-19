@@ -47,17 +47,17 @@ public class Player : CombatEntity
         actionPoints = GetComponent<ActionPoints>();
     }
 
-    private void MouseTargeting()
-    {
-
-    }
-
-    private void ATBActivate()
-    {
-
-    }
-
     protected override int GetHealth()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void DoDamage(int Damage, AttributeTypes attributeType)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ApplyStatus(CombatEntity caster, StatusEffect statusEffect)
     {
         throw new System.NotImplementedException();
     }

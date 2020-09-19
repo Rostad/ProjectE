@@ -38,5 +38,8 @@ public abstract class CombatEntity : MonoBehaviour
 
 
 
+    public abstract void DoDamage(int damage, AttributeTypes attributeType);
+
+    public abstract void ApplyStatus(CombatEntity caster, StatusEffect statusEffect);
     
 }

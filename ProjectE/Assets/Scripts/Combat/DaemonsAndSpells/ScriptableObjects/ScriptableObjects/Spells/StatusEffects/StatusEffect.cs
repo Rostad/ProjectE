@@ -12,16 +12,17 @@ public abstract class StatusEffect : ScriptableObject
     public StatusType statusType;
 
     protected float timeAdded;
-    protected CombatEntity combatEntity;
+    protected CombatEntity target;
+    protected CombatEntity caster;
 
     public virtual void OnAdd()
     {
-        //Add eventual icons to UI
+        timeAdded = Time.time;
     }
 
     public virtual void OnRemove()
     {
-        //Remove eventual icons from UI
+        
     }
 
     //Returns true if the buff has run out and should be removed

@@ -6,7 +6,6 @@ using UnityEngine;
 public class ProjectileSpell : Spell
 {
 
-    public float damage;
     public float projectileSpeed;
 
     public override void perform(CombatEntity caster, CombatEntity target)
@@ -16,13 +15,15 @@ public class ProjectileSpell : Spell
         projectileGameobject.transform.position = caster.transform.position;
         HomingProjectile hp = projectileGameobject.AddComponent<HomingProjectile>();
         hp.Setup(spellVFX, target, this, projectileSpeed);
-        //Instantiate(projectileGameobject, caster.GetCastOrigin(), caster.transform.rotation);
         
     }
 
 
     public void HitCallback()
     {
-        
+        foreach(SpellBehaviour sb in spellBehaviours)
+        {
+            sb.Apply(caster, target);
+        }
     }
 }
