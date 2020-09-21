@@ -4,6 +4,6 @@ using UnityEngine;
 
 public enum StatusType
 {
-    beneficial,
-    detrimental
+    beneficial = 1,
+    detrimental = -1
 }
