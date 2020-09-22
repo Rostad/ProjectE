@@ -36,10 +36,14 @@ public abstract class CombatEntity : MonoBehaviour
 
     protected abstract int GetHealth();
 
+    public abstract int GetStat(StatType statType);
 
-
-    public abstract void DoDamage(int damage, AttributeTypes attributeType);
+    public abstract void DoDamage(int damage, AttributeType attributeType);
 
     public abstract void ApplyStatus(CombatEntity caster, StatusEffect statusEffect);
+
+    public abstract void AddStatModifier(StatType statusType, StatModifier statModifier);
+
+    public abstract void RemoveStatModifier(StatType statusType, StatModifier statModifier);
     
 }

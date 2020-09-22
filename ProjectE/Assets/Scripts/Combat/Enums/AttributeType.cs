@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AttributeTypes
+public enum AttributeType
 {
     Thunder, 
     Fire,

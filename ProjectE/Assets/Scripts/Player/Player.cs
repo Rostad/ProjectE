@@ -12,6 +12,9 @@ public class Player : CombatEntity
     private Health playerHealth;
     private ActionPoints actionPoints;
 
+    public Spell testSpell;
+    public Enemy testTarget;
+
 
     
 
@@ -27,14 +30,16 @@ public class Player : CombatEntity
         if (PlayerInputs.instance.ActionButton)
         {
             //GamePauser.ShouldPause(!GamePauser.IsPaused);
-            if (Time.timeScale == 1)
+            /*if (Time.timeScale == 1)
             {
                 Time.timeScale = 0.05f;
             }
             else
             {
                 Time.timeScale = 1;
-            }
+            }*/
+
+            testSpell.perform(this, testTarget);
 
             
         }
@@ -52,12 +57,34 @@ public class Player : CombatEntity
         throw new System.NotImplementedException();
     }
 
-    public override void DoDamage(int Damage, AttributeTypes attributeType)
+    public override void DoDamage(int Damage, AttributeType attributeType)
     {
         throw new System.NotImplementedException();
     }
 
     public override void ApplyStatus(CombatEntity caster, StatusEffect statusEffect)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override int GetStat(StatType statType)
+    {
+        if (statType == StatType.Strength)
+        {
+            return 0;
+        }
+        else
+        {
+            return 6;
+        }
+    }
+
+    public override void AddStatModifier(StatType statusType, StatModifier statModifier)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void RemoveStatModifier(StatType statusType, StatModifier statModifier)
     {
         throw new System.NotImplementedException();
     }

@@ -7,13 +7,11 @@ public class StatModifier
 
     private float modifyAmount;
     private bool isPercentage;
-    private StatusType statusType;
 
-    public StatModifier(float modifyAmount, bool isPercentage, StatusType statusType)
+    public StatModifier(float modifyAmount, bool isPercentage)
     {
         this.modifyAmount = modifyAmount;
         this.isPercentage = isPercentage;
-        this.statusType = statusType;
     }
 
     public float ModifyStat(float stats)
@@ -23,10 +21,10 @@ public class StatModifier
 
         if (isPercentage)
         {
-            return (stats * modifyAmount) * (int)statusType;
+            return stats * modifyAmount;
         }
 
-        return modifyAmount * (int)statusType;
+        return modifyAmount;
     }
 
 }

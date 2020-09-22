@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatusType
+public enum StatType
 {
-    beneficial = 1,
-    detrimental = -1
+    Strength,
+    Magic, 
+    Vitality,
+    Luck
 }

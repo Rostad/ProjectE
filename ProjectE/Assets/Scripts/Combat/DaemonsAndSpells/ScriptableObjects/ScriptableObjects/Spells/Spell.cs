@@ -7,7 +7,7 @@ public abstract class Spell : ScriptableObject
     public string spellName;
     public string tooltip;
     public float manaCost;
-    public AttributeTypes spellAttribute;
+    public AttributeType spellAttribute;
     public GameObject spellVFX;
     public SpellBehaviour[] spellBehaviours;
 

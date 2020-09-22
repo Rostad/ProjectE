@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "SingleTargetSpell", menuName = "ScriptableObjects/Spell")]
 public class SingleTargetSpell : Spell
 {
 

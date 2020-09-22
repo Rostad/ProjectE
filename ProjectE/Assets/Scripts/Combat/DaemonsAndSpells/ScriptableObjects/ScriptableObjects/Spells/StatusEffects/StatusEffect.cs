@@ -3,31 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class StatusEffect : ScriptableObject
+[CreateAssetMenu(fileName = "StatusEffect", menuName = "ScriptableObjects/StatusEffect")]
+public class StatusEffect : ScriptableObject
 {
 
+    public List<StatusBehaviour> statusBehaviours;
     public float statusDuration;
     public string statusName;
     public Image statusImage;
-    public StatusType statusType;
 
     protected float timeAdded;
     protected CombatEntity target;
     protected CombatEntity caster;
 
-    public virtual void OnAdd()
+    public void Initialize(CombatEntity caster, CombatEntity target)
     {
-        timeAdded = Time.time;
+        this.target = target;
+        this.caster = caster;
+        foreach(StatusBehaviour sb in statusBehaviours)
+        {
+            sb.Initialize(statusDuration, caster, target);
+        }
     }
 
-    public virtual void OnRemove()
+    public void OnAdd()
     {
-        
+        timeAdded = Time.time;
+        foreach(StatusBehaviour sb in statusBehaviours)
+        {
+            sb.OnAdd();
+        }
+    }
+
+    public void OnRemove()
+    {
+        foreach(StatusBehaviour sb in statusBehaviours)
+        {
+            sb.OnRemove();
+        }
     }
 
     //Returns true if the buff has run out and should be removed
-    public virtual bool Update()                        
+    public bool Update()                        
     {
+        foreach(StatusBehaviour sb in statusBehaviours)
+        {
+            sb.Update();
+        }
+
         if(Time.time > timeAdded + statusDuration)
         {
             return true;
@@ -36,7 +59,7 @@ public abstract class StatusEffect : ScriptableObject
         return false;
     }
 
-    public virtual void Refresh()
+    public void Refresh()
     {
         timeAdded = Time.time;
     }

@@ -9,15 +9,25 @@ public class Daemon : ScriptableObject
 
     public string daemonName;
     public Image daemonPicture;
-    public AttributeTypes daemonAttribute;
+    public AttributeType daemonAttribute;
     public List<NameStatPair> statNameAndAmount;
+    public List<NameResistancePair> attributeResistances;
+    public Spell[] startingSpells;
 
 
     [System.Serializable]
     public class NameStatPair
     {
-        public string name;
+        public StatType statType;
         public float value;
+
+    }
+
+    [System.Serializable]
+    public class NameResistancePair
+    {
+        public AttributeType resistantAttribute;
+        public ResistanceStrength resistanceStrength;
 
     }
 }

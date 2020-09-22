@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatModifierEffect : StatusEffect
+[CreateAssetMenu(fileName = "StatModifierBehaviour", menuName = "ScriptableObjects/StatusBehaviour")]
+public class StatModifierEffect : StatusBehaviour
 {
 
-    public string statName;
+    public StatType statName;
     public float modifyAmount;
     public bool isPercentage;
 
@@ -14,10 +15,22 @@ public class StatModifierEffect : StatusEffect
 
     public override void OnAdd()
     {
-        base.OnAdd();
 
-        statModifier = new StatModifier(modifyAmount, isPercentage, statusType);
+        statModifier = new StatModifier(modifyAmount, isPercentage);
+
+        target.AddStatModifier(statName, statModifier);
+
+        
     }
 
+    public override void OnRefresh()
+    {}
 
+    public override void OnRemove()
+    {
+        target.RemoveStatModifier(statName, statModifier);
+    }
+
+    public override void Update()
+    {}
 }
