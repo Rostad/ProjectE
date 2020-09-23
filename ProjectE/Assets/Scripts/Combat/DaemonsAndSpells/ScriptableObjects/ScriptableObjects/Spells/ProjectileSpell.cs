@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ProjectileSpell", menuName = "ScriptableObjects/Spell")]
+[CreateAssetMenu(fileName = "ProjectileSpell", menuName = "ScriptableObjects/Spell/ProjectileSpell")]
 public class ProjectileSpell : Spell
 {
 

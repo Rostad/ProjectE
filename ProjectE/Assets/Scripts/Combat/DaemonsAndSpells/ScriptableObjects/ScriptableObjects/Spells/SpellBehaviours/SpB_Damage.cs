@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SBDamage", menuName = "ScriptableObjects/SpellBehaviours/SBDamage")]
-public class SBDamage : SpellBehaviour
+public class SpB_Damage : SpellBehaviour
 {
 
     public float strengthScaling;

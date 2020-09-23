@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SBStatus", menuName = "ScriptableObjects/SpellBehaviours/SBStatus")]
-public class SBStatus : SpellBehaviour
+public class SpB_Status : SpellBehaviour
 {
     public StatusEffect statusEffect;
 

@@ -88,4 +88,20 @@ public class Player : CombatEntity
     {
         throw new System.NotImplementedException();
     }
+
+    private void OnDrawGizmos()
+    {
+        float width = 10;
+        float lenght = 20;
+
+        Vector3 targetPosition = new Vector3(testTarget.transform.position.x, transform.position.y, testTarget.transform.position.z);
+
+        Vector3 direction = targetPosition - transform.position;
+
+        var cubePos = transform.position + (direction.normalized * (lenght / 2));
+
+        Gizmos.DrawWireCube(cubePos, new Vector3(lenght / 2, 2, width / 2));
+
+        
+    }
 }
