@@ -19,5 +19,5 @@ MonoBehaviour:
   spellVFX: {fileID: 270893457951760020, guid: 6d23fffb91c03d641aeeca956ceace5b, type: 3}
   spellBehaviours:
   - {fileID: 11400000, guid: dd1397e255d840d4a9414a3c795edf23, type: 2}
-  overlapBoxLength: 15
+  overlapBoxLength: 22
   overlapBoxWidth: 3

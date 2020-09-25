@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 270893457951759977}
   - component: {fileID: 270893457951760022}
   - component: {fileID: 270893457951760023}
+  - component: {fileID: 5377455067701214352}
+  - component: {fileID: 6423912607632648213}
   m_Layer: 0
   m_Name: VFX_FlameThrower
   m_TagString: Untagged
@@ -110,3 +112,29 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5377455067701214352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270893457951760020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4340c211c800b284d9283184c924c26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeUntilStop: 0.7
+--- !u!114 &6423912607632648213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270893457951760020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83011c4184cbb344f97bc4797c2a88af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeUntilDestroy: 2.5

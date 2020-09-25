@@ -53,7 +53,7 @@ public class AreaOfEffectSpell : Spell
 
     public GameObject SpawnVFX(Vector3 targetPos)
     {
-        var vfxGameobject = Instantiate(spellVFX, caster.transform);
+        var vfxGameobject = Instantiate(spellVFX, caster.transform.position, Quaternion.identity);
         vfxGameobject.transform.LookAt(targetPos);
         return vfxGameobject;
     }
